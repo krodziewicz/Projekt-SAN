@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menedżer Finansowy</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/327a0d490c.js" crossorigin="anonymous"></script> 
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1><i class="far fa-credit-card"></i> Menedżer Finansowy</h1>
+        <p>Twój osobisty doradca w codziennych wydatkakch!</p>
+    </header>
+
+    <main>
+        <section class="all-transactions">
+            <h2 class="title">Lista transakcji:</h2>
+            <div class="transactions-list">
+                <div class="income-area">
+                    <h3>Przychody:</h3>
+                </div>
+                <div class="expenses-area">
+                    <h3>Wydatki:</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="options">
+            <div>
+                <h2 class="title">Dostępne środki:</h2>
+                <p class="available-money">0zł</p>
+            </div>
+            <div class="controls">
+                <button class="add-transaction"><i class="fas fa-plus"></i> Dodaj transakcję</button>
+                <button class="delete-all"><i class="far fa-trash-alt"></i> Usuń wszystko</button>
+            </div>
+        </section>
+        
+    </main>
+        <div class="style-selection">
+            <button class="font roboto"><i class="fas fa-font"></i></button>   
+            <button class="change light"><i class="fas fa-moon"></i></button>
+        </div>
+    <div class="add-transaction-panel">
+        <h2 class="title">Dodaj nową transakcję</h2>
+        <label for="name">Nazwa transakcji:</label>
+        <small>(Podaj nazwę transakcji)</small>
+        <input type="text" id="name"></input>
+
+        <label for="amount">Kwota transakcji:</label>
+        <small>(+ przychód - wydatek) </small>
+        <input type="number" id="amount">
+        <label for="currency">Waluta transakcji</label>
+        <small>(Podaj walutę transakcji) </small>
+        <select id="currency">
+            <option value="PLN" selected>PLN</option>
+            <option value="USD">USD</option>
+            <option value="GBP">GBP</option>
+            <option value="EUR">EUR</option>
+            <option value="CHF">CHF</option>
+        </select>
+
+        <label for="category">Wybierz kategorię:</label>
+        <small>(Kategoria transakcji)</small>
+        <select id="category" onchange="selectCategory()">
+            <option value="none" selected disabled></option>
+            <option value="income">Przychód</option>
+            <option value="shopping">Zakupy</option>
+            <option value="food">Jedzenie</option>
+            <option value="entertainment">Rozrywka</option>
+            <option value="transport">Transport</option>
+            <option value="house">Mieszkanie</option>
+            <option value="house">Podróże</option>
+            <option value="house">Mieszkanie</option>
+        </select>
+
+        <div class="panel-buttons">
+            <button class="save"><i class="fas fa-save"></i> Zapisz</button>
+            <button class="cancel"><i class="far fa-window-close"></i> Anuluj</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
