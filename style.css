@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
+    width: 100%;
     padding: 0;
 }
 
@@ -27,25 +28,28 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 40px;
+    margin-bottom: 150px;
     height: 220px;
-
+    padding-top: 200px;
 }
 
 header h1 {
     margin-bottom: 10px;
     font-size: 48px;
+    text-align: center;
     font-weight: 200;
 }
 
 header p {
     font-size: 28px;
     font-weight: 200;
+    text-align: center;
 }
 
 main {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: flex-start;
 }
 
@@ -72,8 +76,7 @@ h2.title {
 
 .income-area,
 .expenses-area {
-    margin: 0 20px;
-    padding: 30px;
+    padding-top: 10px;
     width: 50%;
     border: 1px solid var(--border-color);
     border-radius: 30px;
@@ -126,6 +129,7 @@ h2.title {
 
 .options {
     padding: 80px 40px;
+    margin-top: 20px;
     width: 500px;
     border: 1px solid var(--border-color);
     border-radius: 20px;
@@ -165,6 +169,8 @@ font-family: 'Roboto', sans-serif;
 .style-selection {
     position: absolute;
     top: 30px;
+    display: flex;
+    justify-content: flex-end;
     right: 30px;
 }
 
@@ -172,6 +178,7 @@ button.change {
     padding: 10px;
     border: none;
     background: none;
+    width: 40px;
     font-size: 35px;
     cursor: pointer;
     transition: transform .3s;
@@ -181,6 +188,7 @@ button.font {
     padding: 10px;
     border: none;
     background: none;
+    width: 100px;
     font-size: 38px;
     cursor: pointer;
     transition: transform .3s;
@@ -226,12 +234,14 @@ button.dark {
 
 .add-transaction-panel label {
     margin-top: 40px;
+    text-align: center;
     margin-bottom: 5px;
     font-size: 26px;
 }
 
 .add-transaction-panel small {
     margin-bottom: 15px;
+    text-align: center;
     font-style: italic;
     color: #ddd;
 }
@@ -275,4 +285,18 @@ button.dark {
 
 .add-transaction-panel button:hover {
     background-color: rgb(25, 27, 51);
+}
+@media only screen and (max-width: 640px) {
+    header p {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+    .add-transaction-panel input,
+    .add-transaction-panel select,
+    .add-transaction-panel option {
+        width: 100%;
+    }
 }
