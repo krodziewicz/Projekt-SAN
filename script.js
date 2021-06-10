@@ -23,7 +23,6 @@ let categoryIcon;
 let selectedCategory;
 let moneyArr = [0];
 
-console.log(transactionCurrency.value)
 const showPanel = () => {
     addTransactionPanel.style.display = 'flex';
 }
@@ -48,32 +47,59 @@ const clearInputs = () => {
 }
 
 const createNewTransaction = () => {
-    fetch(`http://api.exchangeratesapi.io/v1/latest?access_key=b2453dc0dfbafc98f14aa0f06ab6e366&base = USD`)
+    if (transactionCurrency.value !== 'pln') {
+    fetch(`http://api.nbp.pl/api/exchangerates/rates/a/${transactionCurrency.value}/`)
     .then(res => res.json())
-    .then(data => {console.log(data)
-    })
-
-    const newTransaction = document.createElement('div');
-    newTransaction.classList.add('transaction');
-    newTransaction.setAttribute('id', ID);
-    checkCategory(selectedCategory);
-
-    newTransaction.innerHTML = `
+    .then(data => {
+        let currencyRate = data.rates[0].mid;
+        let newValue = currencyRate * amountInput.value;
+        let fixedValue = newValue.toFixed(2);
+        const newTransaction = document.createElement('div');
+        newTransaction.classList.add('transaction');
+        newTransaction.setAttribute('id', ID);
+        checkCategory(selectedCategory);
+        
+        newTransaction.innerHTML = `
         <p class="transaction-name">
         ${categoryIcon} ${nameInput.value}
         </p>
         <p class="transaction-amount">
-        ${amountInput.value}zł 
+        ${fixedValue}zł 
         <button class="delete" onclick="deleteTransatcion(${ID})"><i class="fas fa-times"></i></button>
         </p>
     `;
 
-    amountInput.value > 0 ? incomeSection.appendChild(newTransaction) && newTransaction.classList.add('income') : expensesSection.appendChild(newTransaction) && newTransaction.classList.add('expense');
-    moneyArr.push(parseFloat(amountInput.value));
+    fixedValue > 0 ? incomeSection.appendChild(newTransaction) && newTransaction.classList.add('income') : expensesSection.appendChild(newTransaction) && newTransaction.classList.add('expense');
+    moneyArr.push(parseFloat(fixedValue));
     countMoney(moneyArr)
     closePanel();
     ID++;
     clearInputs();
+
+    })
+    } else {
+        const newTransaction = document.createElement('div');
+        newTransaction.classList.add('transaction');
+        newTransaction.setAttribute('id', ID);
+        checkCategory(selectedCategory);
+    
+        newTransaction.innerHTML = `
+            <p class="transaction-name">
+            ${categoryIcon} ${nameInput.value}
+            </p>
+            <p class="transaction-amount">
+            ${amountInput.value}zł 
+            <button class="delete" onclick="deleteTransatcion(${ID})"><i class="fas fa-times"></i></button>
+            </p>
+        `;
+    
+        amountInput.value > 0 ? incomeSection.appendChild(newTransaction) && newTransaction.classList.add('income') : expensesSection.appendChild(newTransaction) && newTransaction.classList.add('expense');
+        moneyArr.push(parseFloat(amountInput.value));
+        countMoney(moneyArr)
+        closePanel();
+        ID++;
+        clearInputs();
+    }
 }
 
 const selectCategory = () => {
@@ -110,12 +136,9 @@ const checkCategory = transaction => {
 }
 
 
-
-
-
 const countMoney = money => {
     const newMoney = money.reduce((a, b) => a + b);
-    availableMoney.textContent = `${newMoney}zł`;
+    availableMoney.textContent = `${newMoney.toFixed(2)} zł`;
 }
 
 const deleteTransatcion = id => {
