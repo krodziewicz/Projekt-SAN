@@ -117,11 +117,11 @@ const checkCategory = transaction => {
         case 'Jedzenie':
             categoryIcon = '<i class="fas fa-hamburger"></i>'
             break;
-        case 'Kino':
+        case 'Kultura':
             categoryIcon = '<i class="fas fa-film"></i>'
             break;
         case 'Rozrywka':
-            categoryIcon = '<i class="fas fa-film"></i>'
+            categoryIcon = '<i class="fas fa-basketball-ball"></i>'
             break;
         case 'Transport':
             categoryIcon = '<i class="fas fa-bus"></i>'
@@ -132,6 +132,10 @@ const checkCategory = transaction => {
         case 'Podróże':
             categoryIcon = '<i class="fas fa-globe-americas"></i>'
             break;
+        case 'Zdrowie i uroda':
+                categoryIcon = '<i class="fas fa-spa"></i>'
+            break;
+            
     }
 }
 
@@ -153,7 +157,7 @@ const deleteTransatcion = id => {
 }
 
 const deleteAllTransactions = () => {
-    incomeSection.innerHTML = '<h3>Przychód:</h3>';
+    incomeSection.innerHTML = '<h3>Przychody:</h3>';
     expensesSection.innerHTML = '<h3>Wydatki:</h3>';
     availableMoney.textContent = '0zł'
     moneyArr = [0];

@@ -1,8 +1,8 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    width: 100%;
     padding: 0;
+    width: 100%;
 }
 
 :root {
@@ -86,10 +86,10 @@ div.transaction.expense {
 
 .income-area,
 .expenses-area {
-    margin: 5px;
+    margin: 10px;
     padding-top: 10px;
     width: 50%;
-    border: 1px solid var(--border-color);
+    border: 2px solid var(--border-color);
     border-radius: 30px;
 }
 
@@ -126,11 +126,11 @@ div.transaction.expense {
 }
 
 .options {
+    margin: 20px 10px;
     padding: 80px 40px;
-    margin-top: 20px;
     width: 500px;
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 30px;
 }
 
 .available-money {
@@ -194,11 +194,11 @@ button.font {
 }
 
 button.change:hover {
-    transform: scale(1.2);
+    transform: scale(1.3);
 }
 
 button.font:hover {
-    transform: scale(1.2);
+    transform: scale(1.3);
 }
 
 button.light {
@@ -222,7 +222,7 @@ button.dark {
     top: 0;
     left: 0;
     color: #fff;
-    background-image: linear-gradient(315deg, #4c4177 0%, #2a5470 74%);
+    background: linear-gradient(#159957, #155799);
     width: 100%;
     height: 100%;
 }
@@ -299,6 +299,21 @@ button.dark {
         font-size: 14px;
     }
 
+    div.income-area h3 {
+        font-size: 20px;
+    }
+
+    div.expenses-area h3 {
+        font-size: 20px;
+    }
+
+    .options {
+        padding: 40px 20px;
+    }
+
+    p.available-money {
+        font-size: 40px;
+    }
 }
 
 @media only screen and (max-width: 800px) {
@@ -306,6 +321,13 @@ button.dark {
     .add-transaction-panel input,
     .add-transaction-panel select,
     .add-transaction-panel option {
-        width: 100%;
+        width: 80%;
     }
+}
+
+@media all and (min-width:1000px) {
+    .add-transaction-panel .panel-buttons {
+        max-width: 25%;
+    }
+
 }
