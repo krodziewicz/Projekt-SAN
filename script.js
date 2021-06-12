@@ -48,7 +48,7 @@ const clearInputs = () => {
 
 const createNewTransaction = () => {
     if (transactionCurrency.value !== 'pln') {
-    fetch(`http://api.nbp.pl/api/exchangerates/rates/a/${transactionCurrency.value}/`)
+    fetch(`https://api.nbp.pl/api/exchangerates/rates/a/${transactionCurrency.value}/`)
     .then(res => res.json())
     .then(data => {
         let currencyRate = data.rates[0].mid;
