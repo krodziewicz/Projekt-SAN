@@ -9,13 +9,21 @@
 body {
   position: relative;
   min-height: 100vh;
-  background-color: #fff;
-  color: #14161F;
   font-family: 'Roboto', sans-serif;
 }
 
 body .font-pacifico {
   font-family: 'Pacifico', cursive;
+}
+
+body .light {
+  background-color: white;
+  color: black;
+}
+
+body .dark {
+  background-color: black;
+  color: white;
 }
 
 header {
@@ -72,7 +80,7 @@ h2.title {
 }
 
 .all-transactions {
-  width: 1000px;
+  width: 800px;
 }
 
 .all-transactions h3 {
@@ -94,24 +102,26 @@ div.transaction.expense {
   text-align: center;
 }
 
-.income-area,
-.expenses-area {
+.income-area.light,
+.expenses-area.light {
   margin: 10px;
   padding-top: 10px;
   width: 50%;
-  border: 1px solid #14161F;
   border-radius: 30px;
+  color: black;
+  background: white;
+  border: black;
 }
 
 .income-area h3,
 .income-area .transaction-amount {
-  color: #13c86c;
+  color: white;
   font-weight: bold;
 }
 
 .expenses-area h3,
 .expenses-area .transaction-amount {
-  color: #ff6868;
+  color: white;
   font-weight: bold;
 }
 
@@ -123,7 +133,7 @@ div.transaction.expense {
   background: none;
   border: none;
   font-size: 18px;
-  color: #14161F;
+  color: white;
   cursor: pointer;
   -webkit-transition: -webkit-transform .3s;
   transition: -webkit-transform .3s;
@@ -140,8 +150,9 @@ div.transaction.expense {
   margin: 20px 10px;
   padding: 80px 40px;
   width: 500px;
-  border: 1px solid #14161F;
+  border: 1px solid white;
   border-radius: 30px;
+  background: #738678;
 }
 
 .available-money {
@@ -162,8 +173,8 @@ div.transaction.expense {
 .controls button {
   margin: 5px;
   padding: 12px 20px;
-  color: #14161F;
-  border: 1px solid #14161F;
+  color: white;
+  border: 1px solid white;
   border-radius: 20px;
   background: none;
   -webkit-transition: color .3s, background-color .3s;
@@ -173,8 +184,8 @@ div.transaction.expense {
 
 .controls button:hover {
   font-family: 'Roboto', sans-serif;
-  color: #fff;
-  background-color: #14161F;
+  color: white;
+  background-color: black;
 }
 
 button {
@@ -232,6 +243,14 @@ button.dark {
   border: none;
 }
 
+h2.title {
+  color: white;
+}
+
+p.available-money {
+  color: white;
+}
+
 .add-transaction-panel {
   display: none;
   -webkit-box-pack: center;
@@ -254,10 +273,6 @@ button.dark {
   height: 100%;
 }
 
-.add-transaction-panel h2.title {
-  margin-bottom: 0;
-}
-
 .add-transaction-panel label {
   margin-top: 40px;
   text-align: center;
@@ -276,7 +291,7 @@ button.dark {
 .add-transaction-panel select {
   width: 800px;
   padding: 10px 20px;
-  border: 1px solid black;
+  border: 1px solid white;
   border-radius: 5px;
   font-size: 18px;
 }
@@ -290,7 +305,7 @@ button.dark {
   padding: 15px 40px;
   font-size: 18px;
   color: #fff;
-  border: 1px solid #fff;
+  border: 1px solid white;
   border-radius: 5px;
   background: none;
   cursor: pointer;
