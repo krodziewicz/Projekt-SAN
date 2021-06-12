@@ -170,17 +170,17 @@ const changeThemeStyle = () => {
       changeThemeButton.classList.add('dark');
       changeFontButton.classList.remove('light');
       changeFontButton.classList.add('dark');
-      root.style.setProperty('--first-color', '#333');
-      root.style.setProperty('--second-color', '#fff');
-      root.style.setProperty('--border-color', '#fff');
+      root.style.setProperty('$firstColor', '#333');
+      root.style.setProperty('$secondColor', '#fff');
+      root.style.setProperty('$borderColor', '#fff');
     } else if (changeThemeButton.classList.contains('dark')) {
         changeThemeButton.classList.remove('dark');
         changeThemeButton.classList.add('light');
         changeFontButton.classList.remove('dark');
         changeFontButton.classList.add('light');
-        root.style.setProperty('--first-color', '#fff');
-        root.style.setProperty('--second-color', '#333');
-        root.style.setProperty('--border-color', '#333');
+        root.style.setProperty('$firstColor', '#fff');
+        root.style.setProperty('$secondColor', '#333');
+        root.style.setProperty('$borderColor', '#333');
     }
 }
 
